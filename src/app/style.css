@@ -1,0 +1,20 @@
+.hero.is-info.is-bold {
+    background: #43C6AC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #191654, #43C6AC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #191654, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.hero-body {
+    display: flex;
+    justify-content: center;    
+}
+
+.container.form {
+    padding: 20px;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .title {
+        font-size: 1.5rem;
+    }
+}

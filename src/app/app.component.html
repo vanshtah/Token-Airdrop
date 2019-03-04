@@ -1,0 +1,73 @@
+<section class="hero is-medium is-info is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-1">
+        Token AirDrop
+      </h1>
+      <h2 class="title">
+        Your Address: {{account}}
+      </h2>
+      <h2 *ngIf="tokenName">
+        Token Name: {{tokenName}}
+      </h2>
+      <h2 *ngIf="tokenSymbol">
+        Token Symbol: {{tokenSymbol}}
+      </h2>
+      <h2 *ngIf="decimals">
+        Decimals: {{decimals}}
+      </h2>
+    </div>
+  </div>
+</section>
+<br>
+
+<div class="container form">
+  <h1 class="title"></h1>
+
+  <br />
+  <form>
+    <div class="field">
+      <label class="label">Token Address</label>
+      <p class="control">
+        <input [(ngModel)]="token_address" class="input" type="text" name="token_address" required>
+      </p>
+    </div>
+
+    <div class="field">
+      <label class="label">File:</label>
+      <p class="control">
+        <input type="file" (change)="onFileChange($event)" multiple="false" />
+      </p>
+    </div>
+
+    <div class="field is-grouped">
+      <p class="control">
+        <button (click)="fetchDetails()" class="button is-primary">
+          Fetch Token Details
+        </button>
+        <button (click)="airdrop()" class="button is-primary">
+          AirDrop
+        </button>
+      </p>
+    </div>
+  </form>
+
+  <div *ngIf="invalidAddresses.length > 0" style="color: red;">
+    <h1><b>Invalid Address:</b></h1>
+    <ul *ngFor="let address of invalidAddresses">
+      <li>{{address}}</li>
+    </ul>
+  </div>
+
+  <div *ngIf="data">
+    <table>
+      <th>Address</th>
+      <th>Amount</th>
+      <tr *ngFor="let row of data;">
+        <td>{{row[0]}}</td>
+        <td>{{row[1]}}</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
